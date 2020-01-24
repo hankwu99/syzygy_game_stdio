@@ -30,7 +30,7 @@ pygame.mixer.init() # 背景音樂播放
 pygame.mixer.music.set_volume(0.7) # 音量大小0 ~ 1
 
 if not pygame.mixer.music.get_busy(): #如果沒有在播放音樂 就播放
-    pygame.mixer.music.load('MUSIC.mp3')
+    pygame.mixer.music.load('Inspirational.mp3')
     pygame.mixer.music.play()
 
 window=tk.Tk()
@@ -38,22 +38,22 @@ window.title('Syzygy Music')
 window.geometry('800x1000')
 window.configure(background='black')
 
-title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('Kaiso-Next-B', 50), width = 70, height = 5)
+title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('skuare', 30), width = 70, height = 6)
 title_label.pack()
 
-label = tk.Label(window, bg = "black", font = ('Kaiso-Next-B', 85), width = 50, height = 1)
+label = tk.Label(window, bg = "black", font = ('skuare', 50), width = 50, height = 3)
 label.pack()
 
-button_start = tk.Button(window, text = "Start", font = ('Kaiso-Next-B', 20), width = 10, height = 2, command = game)
+button_start = tk.Button(window, text = "Start", font = ('skuare', 20), width = 10, height = 2, command = game)
 button_start.pack()
 
-_label = tk.Label(window, bg = "black", font = ('Kaiso-Next-B', 25), width = 50, height = 1)
+_label = tk.Label(window, bg = "black", font = ('skuare', 50), width = 50, height = 1)
 _label.pack()
 
-button_quit = tk.Button(window, text = "Quit", font = ('Kaiso-Next-B', 20), width = 10, height = 2, command = window.destroy)
+button_quit = tk.Button(window, text = "Quit", font = ('skuare', 20), width = 10, height = 2, command = window.destroy)
 button_quit.pack()
 
-author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('Kaiso-Next-B', 18), width = 1000, height = 1)
+author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('skuare', 18), width = 1000, height = 5)
 author_label.pack(side='bottom')
 author_label.pack()
 
