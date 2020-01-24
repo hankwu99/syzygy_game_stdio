@@ -41,13 +41,13 @@ window.configure(background='black')
 title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('Kaiso-Next-B', 50), width = 70, height = 5)
 title_label.pack()
 
-label = tk.Label(window, text = '', bg = "black", font = ('Kaiso-Next-B', 85), width = 50, height = 1)
+label = tk.Label(window, bg = "black", font = ('Kaiso-Next-B', 85), width = 50, height = 1)
 label.pack()
 
 button_start = tk.Button(window, text = "Start", font = ('Kaiso-Next-B', 20), width = 10, height = 2, command = game)
 button_start.pack()
 
-_label = tk.Label(window, text = '', bg = "black", font = ('Kaiso-Next-B', 25), width = 50, height = 1)
+_label = tk.Label(window, bg = "black", font = ('Kaiso-Next-B', 25), width = 50, height = 1)
 _label.pack()
 
 button_quit = tk.Button(window, text = "Quit", font = ('Kaiso-Next-B', 20), width = 10, height = 2, command = window.destroy)
