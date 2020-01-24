@@ -2,13 +2,16 @@ import sys
 import pygame
 from pygame.locals import QUIT
 import tkinter as tk
+import time
 
+#------------------------------------------------------Pygame area code --------------------------------------------------------#
 
 def game():
-    pygame.init() # 初始化
+    pygame.mixer.music.stop()
+    pygame.init() # pygame初始化
 
-    window_surface = pygame.display.set_mode((800, 1000))
-    pygame.display.set_caption('Syzygy Music')
+    window_surface = pygame.display.set_mode((800, 1000)) # pygame screen size
+    pygame.display.set_caption('Syzygy Music') #screen name
     window_surface.fill((0, 0, 0))
    
     pygame.display.update()  # 更新畫面，等所有操作完成後一次更新（若沒更新，則元素不會出現）
@@ -19,15 +22,41 @@ def game():
                 pygame.quit()
                 sys.exit()
 
+#------------------------------------------------------Pygame area code --------------------------------------------------------#
+
+#-------------------------------------------------------Main menu code ---------------------------------------------------------#
+
+pygame.mixer.init() # 背景音樂播放
+pygame.mixer.music.set_volume(0.7) # 音量大小0 ~ 1
+
+if not pygame.mixer.music.get_busy(): #如果沒有在播放音樂 就播放
+    pygame.mixer.music.load('MUSIC.mp3')
+    pygame.mixer.music.play()
+
 window=tk.Tk()
 window.title('Syzygy Music')
 window.geometry('800x1000')
 window.configure(background='black')
 
-title_label = tk.Label(window, text = 'Syzygy Music', font = ('Kaiso-Next-B', 50), width = 70, height = 6)
+title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('Kaiso-Next-B', 50), width = 70, height = 5)
 title_label.pack()
 
-button_start = tk.Button(window, text = "開始遊戲", font = ('Noto Serif CJK TC', 20), width = 10, height = 2, command = game)
+label = tk.Label(window, text = '', bg = "black", font = ('Kaiso-Next-B', 85), width = 50, height = 1)
+label.pack()
+
+button_start = tk.Button(window, text = "Start", font = ('Kaiso-Next-B', 20), width = 10, height = 2, command = game)
 button_start.pack()
 
+_label = tk.Label(window, text = '', bg = "black", font = ('Kaiso-Next-B', 25), width = 50, height = 1)
+_label.pack()
+
+button_quit = tk.Button(window, text = "Quit", font = ('Kaiso-Next-B', 20), width = 10, height = 2, command = window.destroy)
+button_quit.pack()
+
+author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('Kaiso-Next-B', 18), width = 1000, height = 1)
+author_label.pack(side='bottom')
+author_label.pack()
+
 window.mainloop()
+
+#-------------------------------------------------------Main menu code ---------------------------------------------------------#
