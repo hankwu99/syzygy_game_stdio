@@ -7,6 +7,7 @@ import time
 #------------------------------------------------------Pygame area code --------------------------------------------------------#
 
 def game():
+    window.destroy()
     pygame.mixer.music.stop()
     pygame.init() # pygame初始化
 
@@ -37,6 +38,7 @@ window=tk.Tk()
 window.title('Syzygy Music')
 window.geometry('800x1000')
 window.configure(background='black')
+window.resizable(False, False)
 
 title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('skuare', 30), width = 70, height = 6)
 title_label.pack()
