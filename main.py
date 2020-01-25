@@ -3,7 +3,6 @@ import pygame
 from pygame.locals import QUIT
 import tkinter as tk
 from tkinter import PhotoImage
-import time
 
 #------------------------------------------------------Pygame area code---------------------------------------------------------#
 
@@ -48,12 +47,14 @@ def music1():
     if pygame.mixer.music.get_busy(): #如果在播放音樂 就播放
         pygame.mixer.music.stop()
         pygame.mixer.music.load('riot.mp3')
+        pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play()
 
 def music2():
     if pygame.mixer.music.get_busy(): #如果在播放音樂 就播放
         pygame.mixer.music.stop()
         pygame.mixer.music.load('KVDS-Move.mp3')
+        pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play()
 
 def music_menu():
@@ -62,19 +63,19 @@ def music_menu():
     menu.geometry('800x1000')
     menu.resizable(False, False)
 
-    label = tk.Label(menu, text = 'Music Menu', font = ('skuare', 30), width = 70, height = 3)
+    label = tk.Label(menu, text = 'Music Menu', font = ('Klaxons', 30), width = 70, height = 3)
 
-    music1_name = tk.Label(menu, text = 'Music1\nR・I・O・T by Raise a Suilen', font = ('skuare', 20), width = 70, height = 2)
+    music1_name = tk.Label(menu, text = 'Music_1\nR・I・O・T by Raise a Suilen', font = ('Klaxons', 20), width = 70, height = 2)
     # 無法放音樂封面圖 暫時無解
     music1_play = tk.Button(menu, text = '試聽一段', font = ('微軟正黑體', 15), width = 10, height = 1, command = music1)
-    music1_game = tk.Button(menu, text = 'play this', font = ('skuare', 15), width = 10, height = 1, command = game_music1)
+    music1_game = tk.Button(menu, text = 'play this', font = ('Klaxons', 15), width = 10, height = 1, command = game_music1)
 
-    __label = tk.Label(menu, font = ('skuare', 10), width = 50, height = 2)
+    __label = tk.Label(menu, font = ('Klaxons', 10), width = 50, height = 2)
 
-    music2_name = tk.Label(menu, text = 'Music2\nKVDS - Move', font = ('skuare', 20), width = 70, height = 2)
+    music2_name = tk.Label(menu, text = 'Music_2\nKVDS - Move', font = ('Klaxons', 20), width = 70, height = 2)
     # 無法放音樂封面圖 暫時無解
     music2_play = tk.Button(menu, text = '試聽一段', font = ('微軟正黑體', 15), width = 10, height = 1, command = music2)
-    music2_game = tk.Button(menu, text = 'play this', font = ('skuare', 15), width = 10, height = 1, command = game_music2)
+    music2_game = tk.Button(menu, text = 'play this', font = ('Klaxons', 15), width = 10, height = 1, command = game_music2)
 
     label.pack()
     music1_name.pack()
@@ -102,12 +103,12 @@ window.geometry('800x1000')
 window.configure(background='black')
 window.resizable(False, False)
 
-title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('skuare', 30), width = 70, height = 6)
-label = tk.Label(window, bg = "black", font = ('skuare', 50), width = 50, height = 3)
-button_start = tk.Button(window, text = "Start", font = ('skuare', 20), width = 10, height = 2, command = music_menu)
-_label = tk.Label(window, bg = "black", font = ('skuare', 50), width = 50, height = 1)
-button_quit = tk.Button(window, text = "Quit", font = ('skuare', 20), width = 10, height = 2, command = window.destroy)
-author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('skuare', 18), width = 1000, height = 5)
+title_label = tk.Label(window, text = 'Syzygy Music Game', font = ('Klaxons', 50), width = 50, height = 4)
+label = tk.Label(window, bg = "black", font = ('Klaxons', 50), width = 50, height = 2)
+button_start = tk.Button(window, text = "Start", font = ('Klaxons', 20), width = 15, height = 2, command = music_menu)
+_label = tk.Label(window, bg = "black", font = ('Klaxons', 50), width = 50, height = 1)
+button_quit = tk.Button(window, text = "Quit", font = ('Klaxons', 20), width = 15, height = 2, command = window.destroy)
+author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('Klaxons', 18), width = 1000, height = 5)
 author_label.pack(side='bottom')
 
 title_label.pack()
