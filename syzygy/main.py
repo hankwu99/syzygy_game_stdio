@@ -22,18 +22,16 @@ def game_music2():
 
 #------------------------------------------------------Music menu code----------------------------------------------------------#
 def music1():
-    if pygame.mixer.music.get_busy():
-        pygame.mixer.music.stop()
-        pygame.mixer.music.load('riot.mp3')
-        pygame.mixer.music.set_volume(0.5)
-        pygame.mixer.music.play()
+    pygame.mixer.music.stop()
+    pygame.mixer.music.load('riot.mp3')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play()
 
 def music2():
-    if pygame.mixer.music.get_busy(): 
-        pygame.mixer.music.stop()
-        pygame.mixer.music.load('KVDS-Move.mp3')
-        pygame.mixer.music.set_volume(0.5)
-        pygame.mixer.music.play()
+    pygame.mixer.music.stop()
+    pygame.mixer.music.load('KVDS-Move.mp3')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play()
 
 def music_menu():
     menu = tk.Toplevel(window)
@@ -54,10 +52,13 @@ def music_menu():
     music2_game = tk.Button(menu, text = 'play this', font = ('Agency FB', 20), width = 10, height = 1, command = game_music2)
 
     label.pack()
+
     music1_name.pack()
     music1_play.pack()
     music1_game.pack()
+
     ___label.pack()
+
     music2_name.pack()
     music2_play.pack()
     music2_game.pack()
@@ -73,7 +74,13 @@ def info():
     info.resizable(False, False)
 
     label = tk.Label(info, text = 'More Information', font = ('Agency FB', 30), width = 70, height = 3)
-    paragraph = tk.Label(info, text = 'Syzygy Games Studio\n是一群來自台灣的高中學生\n閒來沒事想用Python寫音樂遊戲ww\n願你在這世界被溫柔以待', font = ('Agency FB', 20), width = 70, height = 5)
+    paragraph = tk.Label(info, 
+    text = """
+    Syzygy Games Studio
+    是一群來自台灣的高中學生
+    閒來沒事想用Python寫音樂遊戲ww
+    願你在這世界被溫柔以待
+    """, font = ('Agency FB', 20), width = 70, height = 10)
 
     label.pack()
     paragraph.pack()
@@ -96,25 +103,36 @@ window.configure(background='black')
 window.resizable(False, False)
 
 title_label = tk.Label(window, text = 'Music Game', font = ('Agency FB', 50), width = 50, height = 4)
+
 label = tk.Label(window, bg = "black", font = ('Agency FB', 40), width = 50, height = 1)
 button_start = tk.Button(window, text = "Start", font = ('Agency FB', 20), width = 15, height = 2, command = music_menu)
+
 _label = tk.Label(window, bg = "black", font = ('Agency FB', 40), width = 50, height = 1)
 button_info = tk.Button(window, text = "More Info.", font = ("Agency FB", 20), width = 15, height = 2, command = info)
+
 __label = tk.Label(window, bg = "black", font = ('Agency FB', 40), width = 50, height = 1)
 button_quit = tk.Button(window, text = "Quit", font = ('Agency FB', 20), width = 15, height = 2, command = window.destroy)
-author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('Agency FB', 18), width = 1000, height = 3)
-author_label.pack(side='bottom')
-version = tk.Label(window, bg = "black", fg= "white", text = 'Beta v 0.0.1', font = ("Agency FB", 18), width = 1000, height = 1)
+
+version = tk.Label(window, bg = "black", fg= "white", text = 'Beta v 0.0.0', font = ("Agency FB", 18), width = 1000, height = 1)
 version.pack(side='bottom')
 
+author_label = tk.Label(window, text = 'Made By Syzygy Games Studio', font = ('Agency FB', 18), width = 1000, height = 3)
+author_label.pack(side='bottom')
+
+
 title_label.pack()
+
 label.pack()
 button_start.pack()
+
 _label.pack()
 button_info.pack()
+
 __label.pack()
 button_quit.pack()
+
 author_label.pack()
+
 version.pack()
 
 window.mainloop()
