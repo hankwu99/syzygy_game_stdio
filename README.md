@@ -1,6 +1,7 @@
 # syzygy_game_stdio
 
 2020/1/24
+
 1.完成主介面，使用tkinter
 
 2.已經可藉由按鈕導入pygame介面
