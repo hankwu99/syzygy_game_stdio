@@ -1,35 +1,25 @@
-import tkinter as tk
+import tkinter as tk, sys, pygame, time
 from tkinter import PhotoImage
-import sys
-import pygame
 from pygame.locals import QUIT
-import music_1
-import music_2
+import music1_ez, music1_nor
 
 #------------------------------------------------------Pygame area code---------------------------------------------------------#
 
-def game_music1():
+def game_music1_ez():
     background.destroy() 
-    pygame.mixer.music.stop()
-    music_1.play() # customize module
+    pygame.mixer.music.fadeout(50)
+    music1_ez.play() # customize module
 
-def game_music2():
+def game_music1_normal():
     background.destroy()
-    pygame.mixer.music.stop()
-    music_2.play() # customize module
+    pygame.mixer.music.fadeout(50)
+    music1_nor.play() # customize module
 
 #------------------------------------------------------Pygame area code---------------------------------------------------------#
-
 #------------------------------------------------------Music menu code----------------------------------------------------------#
-def music1():
-    pygame.mixer.music.stop()
-    pygame.mixer.music.load('Brain Power.mp3')
-    pygame.mixer.music.set_volume(0.5)
-    pygame.mixer.music.play()
-
-def music2():
-    pygame.mixer.music.stop()
-    pygame.mixer.music.load('打打打打打打打打打打.mp3')
+def music():
+    pygame.mixer.music.fadeout(50)
+    pygame.mixer.music.load('source/game music/Where We Started.mp3')
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play()
 
@@ -40,31 +30,18 @@ def music_menu():
     menu.resizable(False, False)
 
     label = tk.Label(menu, text = 'Music Menu', font = ('Agency FB', 30), width = 70, height = 3)
-
-    music1_name = tk.Label(menu, text = 'Music_1\nNOMA - Brain Power', font = ('Agency FB', 20), width = 70, height = 2)
-    music1_play = tk.Button(menu, text = '試聽一段', font = ('Agency FB', 15), width = 15, height = 1, command = music1)
-    music1_game = tk.Button(menu, text = 'play this', font = ('Agency FB', 20), width = 10, height = 1, command = game_music1)
-
-    ___label = tk.Label(menu, font = ('Agency FB', 10), width = 50, height = 2)
-
-    music2_name = tk.Label(menu, text = 'Music_2\nHige Driver join. SELEN - 打打打打打打打打打打', font = ('Agency FB', 20), width = 70, height = 2)
-    music2_play = tk.Button(menu, text = '試聽一段', font = ('Agency FB', 15), width = 15, height = 1, command = music2)
-    music2_game = tk.Button(menu, text = 'play this', font = ('Agency FB', 20), width = 10, height = 1, command = game_music2)
+    music1_name = tk.Label(menu, text = 'Music_1\nLost Sky - Where We Started feat. Jex', font = ('Agency FB', 20), width = 70, height = 2)
+    music1_play = tk.Button(menu, text = '試聽一段', font = ('Agency FB', 15), width = 15, height = 1, command = music)
+    music1_ez = tk.Button(menu, text = 'easy', font = ('Agency FB', 20), width = 10, height = 1, command = game_music1_ez)
+    music1_normal = tk.Button(menu, text = 'normal', font = ('Agency FB', 20), width = 10, height = 1, command = game_music1_normal)
 
     label.pack()
-
     music1_name.pack()
     music1_play.pack()
-    music1_game.pack()
+    music1_ez.pack()
+    music1_normal.pack()
 
-    ___label.pack()
-
-    music2_name.pack()
-    music2_play.pack()
-    music2_game.pack()
-        
 #------------------------------------------------------Music menu code----------------------------------------------------------#
-
 #------------------------------------------------------information code---------------------------------------------------------#
 
 def info():
@@ -86,7 +63,6 @@ def info():
     paragraph.pack()
 
 #------------------------------------------------------information code---------------------------------------------------------#
-
 #-------------------------------------------------------Main menu code----------------------------------------------------------#
 
 background=tk.Tk()
@@ -97,10 +73,8 @@ background.resizable(False, False)
 
 pygame.mixer.init()
 pygame.mixer.music.set_volume(0.7) 
-
-if not pygame.mixer.music.get_busy():
-    pygame.mixer.music.load('Inspirational.mp3')
-    pygame.mixer.music.play()
+pygame.mixer.music.load('source/background music/Inspirational.mp3')
+pygame.mixer.music.play()
 
 title_label = tk.Label(background, text = 'Music Game', font = ('Agency FB', 50), width = 50, height = 4)
 
