@@ -34,20 +34,26 @@ def play():
     pg.mixer.music.load('source/game music/Where We Started.mp3')
     pg.mixer.music.play()
 
-    # tap class
-    class tap(pg.sprite.Sprite):
+    class Judge(pg.sprite.Sprite):
+        def __init__(self):
+            super().__init__()
+            pg.draw.line(background, WHITE, [340, 507], [1059, 507], 5)
+
+    class Tap(pg.sprite.Sprite):
+        place_y = 2000
         def __init__(self, key_place, place):
+            pg.sprite.Sprite.__init__(self)
             # key_palce = 軌道座標, 340 = 第一軌道 其他以key painting的460、580..類推
             super().__init__()
             # 載入圖片
             self.raw_image = pg.image.load('source/image/tap.png').convert_alpha()
             # 是上方的音符還是下方的音符
             if place == 'top':
-                place_y = -20
+                self.place_y = -20
             elif place == 'bottom':
-                place_y = 994
-            # 定位
-            background.blit(self.raw_image, (key_place, place_y))
+                self.place_y = 994
+            # 定位與繪製
+            background.blit(self.raw_image, (key_place, self.place_y))
     
     # key painting
     pg.draw.rect(background, WHITE, [340, 0, 120 , 1014], 1)
@@ -56,9 +62,9 @@ def play():
     pg.draw.rect(background, WHITE, [700, 0, 120 , 1014], 1)
     pg.draw.rect(background, WHITE, [820, 0, 120 , 1014], 1)
     pg.draw.rect(background, WHITE, [940, 0, 120 , 1014], 1)
-    pg.draw.line(background, WHITE, [340, 507], [1059, 507], 5)
-
-    tap1 = tap(340, 'top')
+    Judge()
+    
+    Tap1 = Tap(340, 'top')
 
     # game loop
     while True:
